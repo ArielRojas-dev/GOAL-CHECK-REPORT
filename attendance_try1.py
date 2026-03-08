@@ -1,3 +1,4 @@
+import os
 from  datetime import datetime
 from flask import Flask , render_template , request
 import atten_db_try1 as db
@@ -24,4 +25,5 @@ def get():
 if __name__=="__main__":
     conn=db.get_connection()
     db.creates_daily(conn)
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
