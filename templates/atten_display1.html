@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Attendance List</title>
+    </head>
+    <body>
+        <H1>Today {{date}}</H1>
+        {%if list_%}
+        <h2>List of the students</h2>
+        <ul>
+            {%for name , date in list_%}
+                <li>{{name}}  date:   {{date}}</li>
+                {% endfor %}
+        {%endif%}       
+
+
+
+        <h2>Select here the Student</h2>
+            <ul>
+                {%for id , name in students %}
+                    <li>
+                        <form action="/submit" method="post" style="display: inline;">
+                            <input type="hidden" name="students_input" value="{{ id }}">
+                            <button type="submit">{{name}}</button>
+                        </form>
+                    </li>
+                {% endfor %}     
+            </ul>
+
+        
+        
+
+         
+    </body>
+</html>
